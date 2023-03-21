@@ -37,7 +37,7 @@ import BlogModal from '../modals/blog-modal';
       .then(response => {
         this.setState({
           blogItems: this.state.blogItems.filter(blogItem => {
-            return blog.id != blogItem.id;
+            return blog.id !== blogItem.id;
           })
         })
 
@@ -122,9 +122,11 @@ import BlogModal from '../modals/blog-modal';
             return (
               <div key={blogItem.id} className='admin-blog-wrapper'>
                 <BlogItem  blogItem={blogItem} />
-                <a onClick={this.handleDeleteClick}>Delete</a>
+                <a onClick={() => this.handleDeleteClick(blogItem)}>
+                  <FontAwesomeIcon icon="trash" />
+                  </a>
               </div>
-            )
+            );
           } else {
            return <BlogItem key={blogItem.id} blogItem={blogItem} />;
           }

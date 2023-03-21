@@ -9,7 +9,7 @@ const BlogItem = props => {
     blog_status,
     content,
     title,
-    featured_imag_url
+    featured_image_url
    } = props.blogItem;
 
    return (
